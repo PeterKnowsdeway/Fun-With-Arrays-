@@ -11,12 +11,14 @@ using System;
 
 class Solution
 {
-    public int findMinMax(int []arr, int n)
+    public int [] findMinMax(int []arr, int n)
     {
         //Declare variables
         int i;
-        int min, max;
+        int min = 0; 
+        int max = 0;
         int temp = arr[0];
+        int []tmp = new int[2];
         
         //Loop to find the largest element in the array.
         //Have temp be the first element in the array
@@ -48,22 +50,28 @@ class Solution
             
         }//end of loop
         
-        return new int [] {max,min};
+        tmp[0] = max;
+        tmp[1] = min;
+       
+        return tmp;
         
     }//end of findMinMax
 }//end of class
+
 class Program
 {
-    static void Main()
+    public static void Main()
     {
         //Declare varaibles
         int i;
-        int []arr = new int [3, 2, 1, 56, 10000, 167];
+        int []arr = new int []{3, 2, 1, 56, 10000, 167};
         int n = arr.Length;
         
-        arr = findMinMax(arr, n);
+        Solution s = new Solution();
         
-        for(i = 0; i < n; i++)
+        arr = s.findMinMax(arr, n);
+        
+        for(i = 0; i < arr.Length; i++)
         {
             Console.WriteLine(arr[i]);
         }
