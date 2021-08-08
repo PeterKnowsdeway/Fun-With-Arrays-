@@ -11,23 +11,21 @@ using System;
 
 class Solution
 {
-    public int[] findFrequency(int []arr, int length, int x)
+    public int findFrequency(int []arr, int length, int x)
     {
         //Declare variables
         int i;
-        
-        //countArr is used to count each occurence of a number.
-        //x is used to define the max value that it will find 
-        //in a range (in this case 1).
-        int []countArr = new int[x];
-        //int count = 0;
+        int count = 0;
 
         for(i = 0; i < length; i++)
         {
-            countArr[arr[i]] += 1;
+            if(arr[i] == x)
+            {
+                count++;
+            }
         }
         
-        return countArr;
+        return count;
     }
 }
 
@@ -42,9 +40,9 @@ class Program
         
         Solution s = new Solution();
         
-        arr = s.findFrequency(arr, length, x);
+        x = s.findFrequency(arr, length, x);
         
-        Console.WriteLine(arr[1]);
+        Console.WriteLine(x);
         
         Console.WriteLine("Hello, World!");
     }
